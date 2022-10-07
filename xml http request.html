@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+//XHR:xml-http request
+//Need to XHR: to extract the values from the API via  client and server interaction
+//interaction between client and server via API
+
+//Step 01:create an XHR Object
+var request=new XMLHttpRequest();
+//here request is a user defined variable
+//new is a inbuilt word.it creates the objects
+//XML-Extended Markup language
+
+//Step 02:initate a request
+//Opening a request
+//what type of request we are providing
+//2 parameters
+//HTTP method:
+//URL
+request.open("GET","https://restcountries.com/v2/all");
+
+//Step 03:sending the request
+//pushing
+request.send();
+
+
+//Step 04:once the data successfully loaded from server
+//Status code :200
+//event :it is a specific work
+//onload event:it helps us to load the event
+//functions:to perform a specific task
+request.onload=function(){
+    var result=JSON.parse(request.response);
+    console.log(result);
+};
